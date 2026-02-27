@@ -1,8 +1,8 @@
-import 'package:chat_app/core/cubits/theme_cubit.dart';
+import 'package:chat_app/core/utils/app_assets.dart';
+import 'package:chat_app/core/utils/app_strings.dart';
 import 'package:chat_app/core/utils/extensions.dart';
-import 'package:chat_app/core/widgets/custom_text_field.dart';
+import 'package:chat_app/core/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -10,32 +10,37 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeCubit = context.read<ThemeCubit>();
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 48.h),
           child: Column(
-            spacing: 32.h,
+            spacing: 24.h,
             children: [
-              Align(
-                child: IconButton(
-                  onPressed: () {
-                    themeCubit.changeTheme();
-                  },
-                  icon: Icon(
-                    themeCubit.state ? Icons.dark_mode : Icons.light_mode,
-                  ),
+              Text(
+                AppStrings.onboardingTitle,
+                style: context.textTheme.displayLarge?.copyWith(
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-
-              CustomTextField(label: 'Email', hint: 'Type your email...'),
-
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('This is a card'),
+              Text(
+                AppStrings.onboardingSubtitle,
+                style: context.textTheme.headlineMedium?.copyWith(
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Expanded(
+                child: Image.asset(
+                  AppAssets.onboardingImage,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(
+                width: context.screenWidth,
+                height: 56.h,
+                child: CustomElevatedButton(
+                  text: AppStrings.getStarted,
+                  onPressed: () {},
                 ),
               ),
             ],

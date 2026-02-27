@@ -62,8 +62,20 @@ class AppTheme {
         backgroundColor: _lightColorScheme.primary,
         foregroundColor: _lightColorScheme.onPrimary,
         elevation: 0,
+        shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        textStyle: AppTypography.textTheme(_lightColorScheme).bodyMedium,
+        textStyle: AppTypography.textTheme(_lightColorScheme).bodyLarge,
+      ),
+    ),
+
+    textButtonTheme: TextButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _lightColorScheme.primary,
+        foregroundColor: _lightColorScheme.onPrimary,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        textStyle: AppTypography.textTheme(_lightColorScheme).bodyLarge,
       ),
     ),
 
@@ -126,8 +138,20 @@ class AppTheme {
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
         elevation: 0,
+        shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        textStyle: AppTypography.textTheme(_darkColorScheme).bodyMedium,
+        textStyle: AppTypography.textTheme(_darkColorScheme).bodyLarge,
+      ),
+    ),
+
+    textButtonTheme: TextButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        textStyle: AppTypography.textTheme(_darkColorScheme).bodyLarge,
       ),
     ),
 

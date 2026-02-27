@@ -6,8 +6,8 @@ class AppAssets {
   static const String _icons = 'assets/icons/';
 
   // Images
-  static const String girlWithLaptopImage = '${_images}girl_with_labtop.svg';
-  static const String onboardingImage = '${_images}onboarding.svg';
+  static const String girlWithLaptopImage = '${_images}girl_with_labtop.png';
+  static const String onboardingImage = '${_images}onboarding.png';
 
   // Icons
   static const String addUserIcon = '${_icons}add-user.svg';

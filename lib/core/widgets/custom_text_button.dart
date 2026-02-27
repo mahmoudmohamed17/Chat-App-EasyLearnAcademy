@@ -36,7 +36,7 @@ class CustomTextButton extends StatelessWidget {
       onPressed: onPressed,
       label: Text(
         label,
-        style: context.theme.textTheme.titleMedium?.copyWith(
+        style: context.theme.textTheme.bodyLarge?.copyWith(
           color: labelColor,
           fontWeight: fontWeight,
         ),
