@@ -16,7 +16,7 @@ class AppTheme {
     error: AppColors.error,
     onError: Colors.white,
     surface: AppColors.lightSurface,
-    onSurface: Color.fromRGBO(28, 28, 30, 1),
+    onSurface: AppColors.lightTextPrimary,
     onSurfaceVariant:
         AppColors.lightTextSecondary, // For hint texts in input fields... etc.
   );
@@ -103,20 +103,34 @@ class AppTheme {
       ),
     ),
 
-    // ===== Card Theme =====
+    // ===== Card =====
     cardTheme: CardThemeData(
       color: AppColors.lightSurface,
       elevation: 2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(24.r),
+          topRight: Radius.circular(24.r),
+        ),
         side: const BorderSide(color: AppColors.lightBorder),
       ),
     ),
 
-    // ===== Icon Theme =====
+    // ===== Icon =====
     iconTheme: IconThemeData(size: 24.sp, color: Colors.black),
 
-    tabBarTheme: TabBarThemeData(),
+    // ==== TabBar ====
+    tabBarTheme: TabBarThemeData(
+      indicatorColor: AppColors.lightTextSecondary.withValues(alpha: 0.1),
+      labelStyle: AppTypography.textTheme(
+        AppColors.primary,
+      ).bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+      unselectedLabelStyle: AppTypography.textTheme(
+        AppColors.lightTextPrimary,
+      ).bodyLarge,
+      indicatorSize: TabBarIndicatorSize.label,
+      overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+    ),
   );
 
   // ================= DARK =================
@@ -188,7 +202,18 @@ class AppTheme {
       ),
     ),
 
-    // ===== Icon Theme =====
     iconTheme: IconThemeData(size: 24.sp, color: Colors.white),
+
+    tabBarTheme: TabBarThemeData(
+      indicatorColor: AppColors.darkTextSecondary.withValues(alpha: 0.50),
+      labelStyle: AppTypography.textTheme(
+        Colors.white,
+      ).bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+      unselectedLabelStyle: AppTypography.textTheme(
+        AppColors.lightTextSecondary,
+      ).bodyLarge,
+      indicatorSize: TabBarIndicatorSize.label,
+      overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+    ),
   );
 }

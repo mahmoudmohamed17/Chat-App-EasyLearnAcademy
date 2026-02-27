@@ -1,4 +1,4 @@
-import 'package:chat_app/core/theme/colors.dart';
+import 'package:chat_app/core/routing/routes.dart';
 import 'package:chat_app/core/utils/app_strings.dart';
 import 'package:chat_app/core/utils/extensions.dart';
 import 'package:chat_app/core/utils/validators.dart';
@@ -9,6 +9,7 @@ import 'package:chat_app/core/widgets/custom_text_form_field.dart';
 import 'package:chat_app/features/auth/views/widgets/other_login_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -95,10 +96,12 @@ class _LoginFormState extends State<LoginForm> {
             height: 56.h,
             child: CustomElevatedButton(
               text: AppStrings.login,
-              onPressed: () {},
+              onPressed: () {
+                context.go(Routes.main);
+              },
             ),
           ),
-          84.verticalSpace,
+          74.verticalSpace,
           const OtherLoginOptions(),
         ],
       ),

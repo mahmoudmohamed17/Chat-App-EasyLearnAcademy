@@ -8,6 +8,7 @@ class AppAssets {
   // Images
   static const String girlWithLaptopImage = '${_images}girl_with_labtop.png';
   static const String onboardingImage = '${_images}onboarding.png';
+  static const String dummyUserImage = '${_images}dummy_user.jpg';
 
   // Icons
   static const String addUserIcon = '${_icons}add-user.svg';
