@@ -12,39 +12,34 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
+        child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 48.h),
-          child: Column(
-            spacing: 24.h,
-            children: [
-              Text(
-                AppStrings.onboardingTitle,
-                style: context.textTheme.displayLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+          children: [
+            Text(
+              AppStrings.onboardingTitle,
+              style: context.textTheme.displayLarge?.copyWith(
+                fontWeight: FontWeight.w600,
               ),
-              Text(
-                AppStrings.onboardingSubtitle,
-                style: context.textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w400,
-                ),
+            ),
+            12.verticalSpace,
+            Text(
+              AppStrings.onboardingSubtitle,
+              style: context.textTheme.headlineMedium?.copyWith(
+                fontWeight: FontWeight.w400,
               ),
-              Expanded(
-                child: Image.asset(
-                  AppAssets.onboardingImage,
-                  fit: BoxFit.contain,
-                ),
+            ),
+            48.verticalSpace,
+            Image.asset(AppAssets.onboardingImage, fit: BoxFit.contain),
+            (context.screenHeight * 0.18).verticalSpace,
+            SizedBox(
+              width: context.screenWidth,
+              height: 56.h,
+              child: CustomElevatedButton(
+                text: AppStrings.getStarted,
+                onPressed: () {},
               ),
-              SizedBox(
-                width: context.screenWidth,
-                height: 56.h,
-                child: CustomElevatedButton(
-                  text: AppStrings.getStarted,
-                  onPressed: () {},
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
                 theme: AppTheme.lightTheme,
                 darkTheme: AppTheme.darkTheme,
                 themeAnimationCurve: Curves.fastOutSlowIn,
-                themeAnimationDuration: const Duration(milliseconds: 500),
+                themeAnimationDuration: const Duration(milliseconds: 800),
                 themeMode: state ? ThemeMode.dark : ThemeMode.light,
                 routerConfig: AppRouter.router,
               );

@@ -16,7 +16,7 @@ class AppTheme {
     error: AppColors.error,
     onError: Colors.white,
     surface: AppColors.lightSurface,
-    onSurface: AppColors.lightTextPrimary,
+    onSurface: Color.fromRGBO(28, 28, 30, 1),
     onSurfaceVariant:
         AppColors.lightTextSecondary, // For hint texts in input fields... etc.
   );
@@ -47,11 +47,13 @@ class AppTheme {
       backgroundColor: AppColors.lightBackground,
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.lightTextPrimary, size: 24.sp),
-      titleTextStyle: AppTypography.textTheme(_lightColorScheme).bodyLarge,
+      titleTextStyle: AppTypography.textTheme(
+        AppColors.lightTextPrimary,
+      ).bodyLarge,
     ),
 
     // ===== Text Theme =====
-    textTheme: AppTypography.textTheme(_lightColorScheme),
+    textTheme: AppTypography.textTheme(AppColors.lightTextPrimary),
 
     // ===== Divider =====
     dividerColor: AppColors.lightBorder,
@@ -59,33 +61,33 @@ class AppTheme {
     // ===== Elevated Button =====
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: _lightColorScheme.primary,
-        foregroundColor: _lightColorScheme.onPrimary,
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        textStyle: AppTypography.textTheme(_lightColorScheme).bodyLarge,
+        textStyle: AppTypography.textTheme(Colors.white).bodyLarge,
       ),
     ),
 
+    // ===== Text Button =====
     textButtonTheme: TextButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: _lightColorScheme.primary,
-        foregroundColor: _lightColorScheme.onPrimary,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        textStyle: AppTypography.textTheme(_lightColorScheme).bodyLarge,
+        textStyle: AppTypography.textTheme(Colors.white).bodyLarge,
       ),
     ),
 
     // ===== Input Fields =====
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: _lightColorScheme.surface,
+      fillColor: AppColors.lightSurface,
       hintStyle: AppTypography.textTheme(
-        _lightColorScheme,
-      ).bodyMedium?.copyWith(color: _lightColorScheme.onSurfaceVariant),
+        AppColors.lightTextSecondary,
+      ).bodyMedium,
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
@@ -113,6 +115,8 @@ class AppTheme {
 
     // ===== Icon Theme =====
     iconTheme: IconThemeData(size: 24.sp, color: Colors.black),
+
+    tabBarTheme: TabBarThemeData(),
   );
 
   // ================= DARK =================
@@ -126,41 +130,40 @@ class AppTheme {
       backgroundColor: AppColors.darkBackground,
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.lightTextPrimary, size: 24.sp),
-      titleTextStyle: AppTypography.textTheme(_darkColorScheme).bodyLarge,
+      titleTextStyle: AppTypography.textTheme(
+        AppColors.darkTextPrimary,
+      ).bodyLarge,
     ),
 
-    textTheme: AppTypography.textTheme(_darkColorScheme),
+    textTheme: AppTypography.textTheme(AppColors.darkTextPrimary),
 
     dividerColor: AppColors.darkBorder,
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        textStyle: AppTypography.textTheme(_darkColorScheme).bodyLarge,
+        textStyle: AppTypography.textTheme(Colors.white).bodyLarge,
       ),
     ),
 
     textButtonTheme: TextButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
         elevation: 0,
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        textStyle: AppTypography.textTheme(_darkColorScheme).bodyLarge,
+        textStyle: AppTypography.textTheme(Colors.white).bodyLarge,
       ),
     ),
 
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: _darkColorScheme.surface,
+      fillColor: AppColors.darkSurface,
       hintStyle: AppTypography.textTheme(
-        _lightColorScheme,
-      ).bodyMedium?.copyWith(color: _lightColorScheme.onSurfaceVariant),
+        AppColors.darkTextSecondary,
+      ).bodyMedium,
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),

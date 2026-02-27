@@ -45,7 +45,12 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
       spacing: 8.h,
       children: [
         if (widget.label != null) ...[
-          Text(widget.label ?? '', style: context.textTheme.labelLarge),
+          Text(
+            widget.label ?? '',
+            style: context.textTheme.bodyLarge?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
         TextFormField(
           controller: widget.controller,
@@ -55,7 +60,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
           maxLines: widget.maxLines,
           enabled: widget.enabled,
           onChanged: widget.onChanged,
-          style: context.textTheme.bodyLarge,
+          style: context.textTheme.bodyMedium,
           decoration: InputDecoration(
             hintText: widget.hint,
             prefixIcon: widget.prefixIcon,

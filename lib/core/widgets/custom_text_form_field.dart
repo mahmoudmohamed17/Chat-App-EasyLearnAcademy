@@ -39,7 +39,12 @@ class CustomTextFormField extends StatelessWidget {
       spacing: 8.h,
       children: [
         if (label != null) ...[
-          Text(label ?? '', style: context.textTheme.labelLarge),
+          Text(
+            label ?? '',
+            style: context.textTheme.bodyLarge?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
         TextFormField(
           controller: controller,
@@ -49,7 +54,7 @@ class CustomTextFormField extends StatelessWidget {
           maxLines: maxLines,
           enabled: enabled,
           onChanged: onChanged,
-          style: context.textTheme.bodyLarge,
+          style: context.textTheme.bodyMedium,
           decoration: InputDecoration(
             hintText: hint,
             prefixIcon: prefixIcon,

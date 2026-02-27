@@ -20,83 +20,83 @@ class AppTypography {
     );
   }
 
-  static TextTheme textTheme(ColorScheme colorScheme) {
+  static TextTheme textTheme(Color color) {
     return TextTheme(
       displayLarge: _textStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       displayMedium: _textStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       displaySmall: _textStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       headlineLarge: _textStyle(
         fontSize: 24,
         fontWeight: FontWeight.w500,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       headlineMedium: _textStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       headlineSmall: _textStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
 
       titleLarge: _textStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       titleMedium: _textStyle(
         fontSize: 14,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       titleSmall: _textStyle(
         fontSize: 12,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       bodyLarge: _textStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       bodyMedium: _textStyle(
         fontSize: 14,
         fontWeight: FontWeight.normal,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       bodySmall: _textStyle(
         fontSize: 12,
         fontWeight: FontWeight.normal,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       labelLarge: _textStyle(
         fontSize: 14,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       labelMedium: _textStyle(
         fontSize: 12,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
       labelSmall: _textStyle(
         fontSize: 10,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        color: color,
       ),
     );
   }
