@@ -44,4 +44,7 @@ class AppStrings {
   static const String logout = 'Logout';
   static const String areYouSureToLogout = 'Are you sure to logout?';
   static const String cancel = 'Cancel';
+  static const String camera = 'Camera';
+  static const String gallery = 'Gallery';
+  static const String uploadImage = 'Upload image';
 }

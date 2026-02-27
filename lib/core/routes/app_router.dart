@@ -9,7 +9,6 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: _initialLocation(),
     routes: [
-      _buildRoute(Routes.splash, (context, state) => const Placeholder()),
       _buildRoute(Routes.onboarding, (context, state) => const Placeholder()),
       _buildRoute(Routes.login, (context, state) => const Placeholder()),
       _buildRoute(Routes.home, (context, state) => const Placeholder()),

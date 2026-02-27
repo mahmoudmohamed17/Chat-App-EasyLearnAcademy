@@ -2,7 +2,7 @@ import 'package:chat_app/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextFormField extends StatelessWidget {
   final String? label;
   final String? hint;
   final TextEditingController? controller;
@@ -15,7 +15,7 @@ class CustomTextField extends StatelessWidget {
   final bool enabled;
   final ValueChanged<String>? onChanged;
 
-  const CustomTextField({
+  const CustomTextFormField({
     super.key,
     this.label,
     this.hint,
@@ -39,7 +39,7 @@ class CustomTextField extends StatelessWidget {
       spacing: 8.h,
       children: [
         if (label != null) ...[
-          Text(label!, style: context.textTheme.labelLarge),
+          Text(label ?? '', style: context.textTheme.labelLarge),
         ],
         TextFormField(
           controller: controller,
