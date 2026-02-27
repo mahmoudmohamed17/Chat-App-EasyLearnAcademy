@@ -1,6 +1,8 @@
-import 'package:chat_app/core/routes/app_router.dart';
+import 'package:chat_app/core/cubits/theme_cubit.dart';
+import 'package:chat_app/core/routing/app_router.dart';
 import 'package:chat_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,14 +15,21 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeAnimationCurve: Curves.fastOutSlowIn,
-          themeAnimationDuration: const Duration(milliseconds: 500),
-          themeMode: ThemeMode.system,
-          routerConfig: AppRouter.router,
+        return BlocProvider(
+          create: (context) => ThemeCubit(),
+          child: BlocBuilder<ThemeCubit, bool>(
+            builder: (context, state) {
+              return MaterialApp.router(
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.lightTheme,
+                darkTheme: AppTheme.darkTheme,
+                themeAnimationCurve: Curves.fastOutSlowIn,
+                themeAnimationDuration: const Duration(milliseconds: 500),
+                themeMode: state ? ThemeMode.dark : ThemeMode.light,
+                routerConfig: AppRouter.router,
+              );
+            },
+          ),
         );
       },
     );

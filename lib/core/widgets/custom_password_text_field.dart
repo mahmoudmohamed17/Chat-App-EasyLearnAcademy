@@ -55,7 +55,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
           maxLines: widget.maxLines,
           enabled: widget.enabled,
           onChanged: widget.onChanged,
-          style: context.textTheme.bodyMedium,
+          style: context.textTheme.bodyLarge,
           decoration: InputDecoration(
             hintText: widget.hint,
             prefixIcon: widget.prefixIcon,

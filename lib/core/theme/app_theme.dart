@@ -17,7 +17,8 @@ class AppTheme {
     onError: Colors.white,
     surface: AppColors.lightSurface,
     onSurface: AppColors.lightTextPrimary,
-    onSurfaceVariant: AppColors.lightTextSecondary, // For hint texts in input fields... etc.
+    onSurfaceVariant:
+        AppColors.lightTextSecondary, // For hint texts in input fields... etc.
   );
 
   // ===== DARK COLOR SCHEME =====
@@ -91,12 +92,15 @@ class AppTheme {
     // ===== Card Theme =====
     cardTheme: CardThemeData(
       color: AppColors.lightSurface,
-      elevation: 0,
+      elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: const BorderSide(color: AppColors.lightBorder),
       ),
     ),
+
+    // ===== Icon Theme =====
+    iconTheme: IconThemeData(size: 24.sp, color: Colors.black),
   );
 
   // ================= DARK =================
@@ -150,11 +154,14 @@ class AppTheme {
 
     cardTheme: CardThemeData(
       color: AppColors.darkSurface,
-      elevation: 0,
+      elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: const BorderSide(color: AppColors.darkBorder),
       ),
     ),
+
+    // ===== Icon Theme =====
+    iconTheme: IconThemeData(size: 24.sp, color: Colors.white),
   );
 }

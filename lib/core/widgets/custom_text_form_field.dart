@@ -49,7 +49,7 @@ class CustomTextFormField extends StatelessWidget {
           maxLines: maxLines,
           enabled: enabled,
           onChanged: onChanged,
-          style: context.textTheme.bodyMedium,
+          style: context.textTheme.bodyLarge,
           decoration: InputDecoration(
             hintText: hint,
             prefixIcon: prefixIcon,

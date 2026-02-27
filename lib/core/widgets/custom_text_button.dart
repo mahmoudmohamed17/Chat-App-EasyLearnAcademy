@@ -10,6 +10,7 @@ class CustomTextButton extends StatelessWidget {
     this.iconAlignment,
     this.borderRadius = 16,
     this.labelColor,
+    this.fontWeight,
   });
 
   final VoidCallback onPressed;
@@ -18,6 +19,7 @@ class CustomTextButton extends StatelessWidget {
   final IconAlignment? iconAlignment;
   final double borderRadius;
   final Color? labelColor;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,10 @@ class CustomTextButton extends StatelessWidget {
       onPressed: onPressed,
       label: Text(
         label,
-        style: context.theme.textTheme.titleMedium?.copyWith(color: labelColor),
+        style: context.theme.textTheme.titleMedium?.copyWith(
+          color: labelColor,
+          fontWeight: fontWeight,
+        ),
       ),
       icon: icon,
       iconAlignment: iconAlignment,

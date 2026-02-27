@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
+  final FontWeight? fontWeight;
   final VoidCallback onPressed;
   final Color? backgroundColor;
   final Widget? icon;
@@ -16,6 +17,7 @@ class CustomElevatedButton extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor,
     this.icon,
+    this.fontWeight,
     this.iconAlignment,
     this.textColor = Colors.white,
     this.borderRadius = 16,
@@ -37,7 +39,10 @@ class CustomElevatedButton extends StatelessWidget {
       iconAlignment: iconAlignment,
       label: Text(
         text,
-        style: context.textTheme.bodyMedium?.copyWith(color: textColor),
+        style: context.textTheme.bodyLarge?.copyWith(
+          color: textColor,
+          fontWeight: fontWeight,
+        ),
       ),
     );
   }
