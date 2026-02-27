@@ -11,6 +11,8 @@ class AppStrings {
       'Happy to see you again, to use your account please login first.';
   static const String emailAddress = 'Email Address';
   static const String password = 'Password';
+  static const String typeYourEmail = 'Type your email...';
+  static const String typeYourPassword = 'Type your password...';
   static const String forgotPassword = 'Forgot Password';
   static const String login = 'Login';
   static const String orLoginWith = 'Or Login With';

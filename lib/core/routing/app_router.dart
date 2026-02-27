@@ -1,4 +1,5 @@
 import 'package:chat_app/core/routing/routes.dart';
+import 'package:chat_app/features/auth/views/login_screen.dart';
 import 'package:chat_app/features/onboarding/views/onboarding_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +15,8 @@ class AppRouter {
         Routes.onboarding,
         (context, state) => const OnboardingScreen(),
       ),
-      _buildRoute(Routes.login, (context, state) => const Placeholder()),
+      _buildRoute(Routes.login, (context, state) => const LoginScreen()),
+      _buildRoute(Routes.home, (context, state) => const Placeholder()),
       _buildRoute(Routes.home, (context, state) => const Placeholder()),
     ],
   );

@@ -41,9 +41,7 @@ class CustomTextField extends StatelessWidget {
         if (label != null) ...[
           Text(
             label!,
-            style: context.textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
+            style: context.textTheme.bodyLarge
           ),
         ],
         TextFormField(

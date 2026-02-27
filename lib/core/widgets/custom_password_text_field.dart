@@ -45,12 +45,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
       spacing: 8.h,
       children: [
         if (widget.label != null) ...[
-          Text(
-            widget.label ?? '',
-            style: context.textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          Text(widget.label ?? '', style: context.textTheme.bodyLarge),
         ],
         TextFormField(
           controller: widget.controller,

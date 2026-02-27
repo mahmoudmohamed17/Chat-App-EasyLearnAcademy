@@ -1,9 +1,11 @@
+import 'package:chat_app/core/routing/routes.dart';
 import 'package:chat_app/core/utils/app_assets.dart';
 import 'package:chat_app/core/utils/app_strings.dart';
 import 'package:chat_app/core/utils/extensions.dart';
 import 'package:chat_app/core/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -36,7 +38,9 @@ class OnboardingScreen extends StatelessWidget {
               height: 56.h,
               child: CustomElevatedButton(
                 text: AppStrings.getStarted,
-                onPressed: () {},
+                onPressed: () {
+                  context.go(Routes.login);
+                },
               ),
             ),
           ],
