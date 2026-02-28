@@ -17,8 +17,11 @@ class AppTheme {
     onError: Colors.white,
     surface: AppColors.lightSurface,
     onSurface: AppColors.lightTextPrimary,
-    onSurfaceVariant:
-        AppColors.lightTextSecondary, // For hint texts in input fields... etc.
+    onSurfaceVariant: AppColors
+        .lightTextSecondary, // For hint texts in input fields, tab labels, ...etc
+    tertiaryFixed: AppColors.primary, // For active bottom nav bar item
+    tertiaryFixedDim:
+        AppColors.lightTextSecondary, // For inactive bottom nav bar item
   );
 
   // ===== DARK COLOR SCHEME =====
@@ -33,6 +36,8 @@ class AppTheme {
     surface: AppColors.darkSurface,
     onSurface: AppColors.darkTextPrimary,
     onSurfaceVariant: AppColors.darkTextSecondary,
+    tertiaryFixed: Colors.white,
+    tertiaryFixedDim: AppColors.darkTextSecondary,
   );
 
   // ================= LIGHT =================

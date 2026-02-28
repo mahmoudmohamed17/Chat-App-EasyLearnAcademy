@@ -37,7 +37,7 @@ class AppStrings {
   static const String hours = 'Hours';
   static const String minute = 'Minute';
   static const String minutes = 'Minutes';
-  static const String commingSoon = 'Commig Soon...';
+  static const String comingSoon = 'Coming soon...';
   static const String settings = 'Settings';
   static const String profile = 'Profile';
   static const String notifications = 'Notifications';

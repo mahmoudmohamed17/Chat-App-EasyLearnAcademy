@@ -1,10 +1,9 @@
-import 'package:chat_app/core/utils/app_strings.dart';
-import 'package:chat_app/core/utils/extensions.dart';
-import 'package:chat_app/features/main_screen/views/widgets/chats_list.dart';
+import 'package:chat_app/features/main_screen/data/utils/scroll_visibility_controller.dart';
+import 'package:chat_app/features/main_screen/views/widgets/bottom_nav_bar.dart';
 import 'package:chat_app/features/main_screen/views/widgets/search_header.dart';
+import 'package:chat_app/features/main_screen/views/widgets/tabs_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,19 +12,18 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+class _MainScreenState extends State<MainScreen> {
+  late final ScrollVisibilityController _scrollVisibilityController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _scrollVisibilityController = ScrollVisibilityController();
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _scrollVisibilityController.dispose();
     super.dispose();
   }
 
@@ -33,62 +31,26 @@ class _MainScreenState extends State<MainScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            SearchHeader(),
-            16.verticalSpace,
-            TabBar(
-              controller: _tabController,
-              dividerColor: Colors.transparent,
-              tabs: [
-                Tab(text: AppStrings.chats),
-                Tab(text: AppStrings.friends),
-                Tab(text: AppStrings.calls),
+            Column(
+              children: [
+                16.verticalSpace,
+                const SearchHeader(),
+                16.verticalSpace,
+                Expanded(
+                  child: TabsViewBody(
+                    scrollController:
+                        _scrollVisibilityController.scrollController,
+                  ),
+                ),
               ],
             ),
-
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  const ChatsList(),
-                  Center(
-                    child: Text(
-                      AppStrings.commingSoon,
-                      style: context.textTheme.titleLarge,
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      AppStrings.commingSoon,
-                      style: context.textTheme.titleLarge,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            Card(
-              margin: EdgeInsets.zero,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: FaIcon(FontAwesomeIcons.house),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: FaIcon(FontAwesomeIcons.userPlus),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: FaIcon(FontAwesomeIcons.gear),
-                    ),
-                  ],
-                ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: BottomNavBar(
+                isBottonNavVisibile:
+                    _scrollVisibilityController.isBottonNavVisibile,
               ),
             ),
           ],
