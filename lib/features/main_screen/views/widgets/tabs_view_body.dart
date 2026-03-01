@@ -1,12 +1,10 @@
 import 'package:chat_app/core/utils/app_strings.dart';
-import 'package:chat_app/core/utils/extensions.dart';
 import 'package:chat_app/features/main_screen/views/widgets/chats_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabsViewBody extends StatefulWidget {
-  const TabsViewBody({super.key, required this.scrollController});
-  final ScrollController scrollController;
+  const TabsViewBody({super.key});
 
   @override
   State<TabsViewBody> createState() => _TabsViewBodyState();
@@ -45,21 +43,10 @@ class _TabsViewBodyState extends State<TabsViewBody>
         Expanded(
           child: TabBarView(
             controller: _tabController,
-
-            children: [
-              ChatsList(scrollController: widget.scrollController),
-              Center(
-                child: Text(
-                  AppStrings.comingSoon,
-                  style: context.textTheme.titleLarge,
-                ),
-              ),
-              Center(
-                child: Text(
-                  AppStrings.comingSoon,
-                  style: context.textTheme.titleLarge,
-                ),
-              ),
+            children: const [
+              ChatsList(),
+              Center(child: Text(AppStrings.comingSoon)),
+              Center(child: Text(AppStrings.comingSoon)),
             ],
           ),
         ),

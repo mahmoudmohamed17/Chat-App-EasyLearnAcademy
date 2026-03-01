@@ -1,9 +1,7 @@
-import 'package:chat_app/features/main_screen/data/utils/scroll_visibility_controller.dart';
+import 'package:chat_app/core/utils/app_strings.dart';
 import 'package:chat_app/features/main_screen/views/widgets/bottom_nav_bar.dart';
-import 'package:chat_app/features/main_screen/views/widgets/search_header.dart';
-import 'package:chat_app/features/main_screen/views/widgets/tabs_view_body.dart';
+import 'package:chat_app/features/main_screen/views/widgets/home_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,47 +11,27 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  late final ScrollVisibilityController _scrollVisibilityController;
+  int _currentIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    _scrollVisibilityController = ScrollVisibilityController();
-  }
-
-  @override
-  void dispose() {
-    _scrollVisibilityController.dispose();
-    super.dispose();
-  }
+  final List<Widget> _pages = [
+    const HomeBody(),
+    const Center(child: Text(AppStrings.comingSoon)),
+    const Center(child: Text(AppStrings.comingSoon)),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                16.verticalSpace,
-                const SearchHeader(),
-                16.verticalSpace,
-                Expanded(
-                  child: TabsViewBody(
-                    scrollController:
-                        _scrollVisibilityController.scrollController,
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: BottomNavBar(
-                isBottonNavVisibile:
-                    _scrollVisibilityController.isBottonNavVisibile,
-              ),
-            ),
-          ],
+        child: IndexedStack(index: _currentIndex, children: _pages),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: BottomNavBar(
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
         ),
       ),
     );

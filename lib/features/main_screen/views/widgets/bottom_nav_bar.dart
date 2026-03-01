@@ -1,48 +1,70 @@
 import 'package:chat_app/core/utils/app_assets.dart';
+import 'package:chat_app/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key, required this.isBottonNavVisibile});
-  final ValueNotifier<bool> isBottonNavVisibile;
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key, required this.onTap});
+  final Function(int index) onTap;
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: isBottonNavVisibile,
-      builder: (context, value, child) {
-        return AnimatedSlide(
-          duration: const Duration(milliseconds: 400),
-          offset: value ? Offset.zero : const Offset(0, 1),
-          child: AnimatedOpacity(
-            opacity: value ? 1 : 0,
-            duration: const Duration(milliseconds: 300),
-            child: Card(
-              margin: EdgeInsets.zero,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(AppAssets.homeIcon),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(AppAssets.addUserIcon),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(AppAssets.settingIcon),
-                    ),
-                  ],
-                ),
-              ),
+    return Card(
+      margin: EdgeInsets.zero,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildIcon(
+              asset: AppAssets.homeIcon,
+              index: 0,
+              isActive: _currentIndex == 0,
             ),
-          ),
-        );
+            _buildIcon(
+              asset: AppAssets.addUserIcon,
+              index: 1,
+              isActive: _currentIndex == 1,
+            ),
+            _buildIcon(
+              asset: AppAssets.settingIcon,
+              index: 2,
+              isActive: _currentIndex == 2,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildIcon({
+    required String asset,
+    required int index,
+    bool isActive = false,
+  }) {
+    return IconButton(
+      onPressed: () {
+        setState(() {
+          _currentIndex = index;
+        });
+        widget.onTap(index);
       },
+      icon: SvgPicture.asset(
+        asset,
+        colorFilter: ColorFilter.mode(
+          isActive
+              ? context.colorScheme.tertiaryFixed
+              : context.colorScheme.tertiaryFixedDim,
+          BlendMode.srcIn,
+        ),
+      ),
     );
   }
 }
